@@ -134,6 +134,25 @@ body {
   
   /* Responsive Design */
   @media (max-width: 768px) {
+    #profile {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background-image: url('image/background.png'); /* Replace with your image path */
+        background-size: cover; /* Ensures the image covers the section */
+        background-position: center; /* Centers the image */
+        background-repeat: no-repeat; /* Prevents image repetition */
+        color: white;
+        padding: 0 5%;
+        border-radius: 15px;
+        /* box-shadow: 0 4px 20px rgba(0, 0, 0, 0.249);  */
+        position: relative;
+        overflow: hidden; /* To ensure the overlay doesn't overflow */
+      }
+
+
+
     .profile-container {
       flex-direction: column;
       text-align: center;
