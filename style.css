@@ -136,6 +136,7 @@ body {
   @media (max-width: 768px) {
     #profile {
         display: flex;
+        flex-direction: column; /* Stack content vertically */
         justify-content: center;
         align-items: center;
         min-height: 100vh;
@@ -144,28 +145,79 @@ body {
         background-position: center; /* Centers the image */
         background-repeat: no-repeat; /* Prevents image repetition */
         color: white;
-        padding: 0 5%;
+        padding: 20px; /* Add some padding for better spacing */
         border-radius: 15px;
-        /* box-shadow: 0 4px 20px rgba(0, 0, 0, 0.249);  */
         position: relative;
         overflow: hidden; /* To ensure the overlay doesn't overflow */
-      }
-
-
+    }
 
     .profile-container {
-      flex-direction: column;
-      text-align: center;
+        display: flex;
+        flex-direction: column; /* Stack text and image */
+        align-items: center;
+        text-align: center;
+        gap: 20px; /* Add spacing between the text and image */
+        padding: 0px; /* Add padding for better spacing */
     }
-  
+
+    .text-content {
+        max-width: 90%; /* Limit the width for readability */
+    }
+
+    .text-content h1 {
+        font-size: 2rem; /* Adjust heading size for smaller screens */
+    }
+
+    .text-content h2 {
+        font-size: 1.5rem; /* Adjust subheading size */
+    }
+
+    .text-content p {
+        font-size: 1rem; /* Adjust paragraph size */
+        line-height: 1.5; /* Improve line spacing */
+    }
+
     .image-content img {
-      max-width: 80%;
-      margin-top: 20px;
+        max-width: 0px; /* Set a reasonable size for smaller screens */
+        width: 80%; /* Ensure it adapts to the container */
+        height: auto; /* Maintain aspect ratio */
+        margin-top: 20px;
+        border-radius: 10px; /* Rounded corners for better aesthetics */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Add subtle shadow for depth */
     }
-  }
+
+    .text-content .button {
+        font-size: 0.9rem; /* Adjust button text size */
+        padding: 10px 20px; /* Reduce padding for smaller screens */
+    }
+
+    nav ul {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        list-style: none;
+        margin: 1rem;
+        padding: 0;
+      }
+      
+      nav ul li a {
+        color: #fff;
+        /* font-weight: bold; */
+        text-transform: uppercase;
+        padding: 10px 10px;
+        transition: color 0.3s;
+        font-size: x-small;
+      }
+      
+      nav ul li a:hover {
+        color: #ffcccc; /* Soft pink on hover */
+      }
+
+}
+
+
+
   
-
-
   #skills-background {
     position: absolute;
     top: 0;
@@ -174,8 +226,6 @@ body {
     height: 100%;
     z-index: 0;
   }
-
-
 
 
 /* Skills Section */
@@ -257,21 +307,81 @@ body {
 
   
   /* For smaller screens */
+
   @media (max-width: 768px) {
+    #skills {
+        padding: 30px 20px; /* Reduce padding for smaller screens */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #00000002;
+        backdrop-filter: blur(10px);
+        border-radius: 15px;
+    }
+
+    /* Container for Skills */
     .skills-container {
-      flex-direction: column;
-      text-align: center;
+        flex-direction: column; /* Stack technical and soft skills vertically */
+        align-items: center;
+        gap: 20px; /* Reduce gap between columns */
+        width: 100%; /* Full width */
     }
-  
-    .skills-list {
-      flex-direction: column; /* Stack skills vertically on smaller screens */
+
+    /* Individual Skill Column */
+    .skills-column {
+        width: 90%; /* Take most of the screen width */
+        padding: 15px 20px;
+        background: rgba(255, 255, 255, 0);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
     }
-  
-    .text-content h2 {
-      font-size: 1.2rem; /* Smaller heading */
+
+    .skills-column h2 {
+        text-align: center;
+        margin-bottom: 15px;
+        color: #ffffff;
+        font-size: 1.2rem; /* Smaller font size for headers */
     }
-  }
-  
+
+    /* Individual Skills */
+    .skill {
+        display: flex;
+        flex-direction: column; /* Stack labels and bars vertically */
+        align-items: center;
+        gap: 10px; /* Add some space between the label and the bar */
+        margin-bottom: 10px;
+    }
+
+    .skill-label {
+        font-size: 0.9rem; /* Slightly smaller labels */
+        color: #ffffff;
+        text-align: center;
+        width: auto; /* Allow the label to adjust dynamically */
+    }
+
+    .skill-bar {
+        width: 100%; /* Stretch the bar to full column width */
+        height: 10px; /* Slightly reduce bar height */
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 5px;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .skill-fill {
+        height: 100%;
+        width: 0%; /* Start animation with 0% width */
+        background: linear-gradient(90deg, #ff80ab, #ffeab6);
+        transition: width 1.5s ease-in-out;
+        border-radius: 5px;
+    }
+
+    /* Adjust Skill Section Icon */
+    .skills-icon {
+        display: none; /* Hide icons on smaller screens if they take too much space */
+    }
+}
+
 
   #education, #organization, #volunteer {
     display: flex;
@@ -676,31 +786,84 @@ nav {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    #projects {
+        padding: 40px 20px; /* Adjusted padding for smaller screens */
+    }
+
     .project-item {
-        flex-direction: column;
+        flex-direction: column; /* Stack content vertically */
+        align-items: center; /* Center content for better alignment */
+        gap: 20px; /* Add spacing between elements */
     }
 
     .project-images {
         justify-content: center;
-        gap: 20px; /* Adjust spacing for smaller screens */
+        align-items: center; /* Center images vertically */
+        gap: 15px; /* Reduce gap for smaller screens */
     }
 
     .slanted-img {
-        width: 150px; /* Smaller images on mobile */
-    }
-
-    .project-item {
-        flex-direction: column;
+        width: 100%; /* Full width for images */
+        max-width: 250px; /* Set maximum width */
+        height: auto; /* Maintain aspect ratio */
+        transform: none; /* Remove slant for better fit on smaller screens */
     }
 
     .project-info {
-        text-align: center;
+        text-align: center; /* Center text content */
+        padding: 10px; /* Add some padding */
+    }
+
+    .project-info h3 {
+        font-size: 1.2rem; /* Adjust heading size */
+        margin-bottom: 10px;
+    }
+
+    .project-info p {
+        font-size: 0.9rem; /* Adjust paragraph size */
+        line-height: 1.5;
+    }
+
+    .project-info .button {
+        font-size: 0.8rem; /* Reduce button text size */
+        padding: 8px 15px; /* Adjust button padding */
     }
 
     .project-image img {
-        width: 300px;
+        width: 100%; /* Full width for images */
+        max-width: 250px; /* Limit max width */
+        height: auto; /* Maintain aspect ratio */
+        border-radius: 10px;
     }
 }
+
+@media (max-width: 480px) {
+    #projects {
+        padding: 30px 15px; /* Further adjust padding */
+    }
+
+    .project-item {
+        gap: 15px; /* Reduce gap for very small screens */
+    }
+
+    .project-info h3 {
+        font-size: 1rem; /* Smaller heading size */
+    }
+
+    .project-info p {
+        font-size: 0.8rem; /* Smaller paragraph size */
+    }
+
+    .slanted-img {
+        max-width: 200px; /* Smaller images for compact devices */
+    }
+
+    .project-info .button {
+        font-size: 0.7rem; /* Reduce button text size further */
+        padding: 6px 12px; /* Compact button padding */
+    }
+}
+
 
 /* New Project Section */
 #projects-detection {
@@ -945,4 +1108,54 @@ html {
 .fade-in-container.visible {
     opacity: 1;
     transform: translateY(0); /* Reset transform */
+}
+
+@media (max-width: 768px) {
+    footer {
+        padding: 20px 10px; /* Adjust padding for smaller screens */
+    }
+
+    .footer-container {
+        text-align: center; /* Ensure everything is centered */
+        padding: 10px;
+    }
+
+    .footer-links {
+        flex-direction: column; /* Stack the links vertically */
+        gap: 20px; /* Reduce the gap between links */
+    }
+
+    .footer-link {
+        font-size: 0.9rem; /* Slightly reduce text size */
+    }
+
+    .footer-link img {
+        width: 24px; /* Reduce icon size */
+        height: 24px;
+        margin-right: 5px; /* Adjust spacing for smaller screens */
+    }
+
+    .footer-ending {
+        font-size: 1rem; /* Adjust font size for smaller screens */
+        margin-top: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-links {
+        gap: 15px; /* Further reduce gap for very small screens */
+    }
+
+    .footer-link {
+        font-size: 0.8rem;
+    }
+
+    .footer-link img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .footer-ending {
+        font-size: 0.9rem;
+    }
 }
