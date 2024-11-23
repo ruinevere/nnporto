@@ -1,7 +1,7 @@
 /* General Styles */
 body {
     margin: 0;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     color: #fff;
     line-height: 1.3;
     background: radial-gradient(circle at top left, rgba(255, 192, 203, 0.15), rgba(148, 0, 211, 0.1), #000 80%);
@@ -165,65 +165,96 @@ body {
   }
   
 
-  /* Skills Section *//* Skills Section */
+
+  #skills-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+
+
+
+
+/* Skills Section */
 #skills {
     padding: 60px 20px;
-    background-color: #00000058;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #00000002; /* Glass-like background */
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
   }
   
+  /* Container for Skills */
   .skills-container {
-    height: 80px;
     display: flex;
-    justify-content: flex-start; /* Align items to the left */
-    align-items: center;
+    justify-content: space-between; /* Space between technical and soft skills */
+    align-items: flex-start;
+    gap: 40px;
     max-width: 1200px;
     width: 100%;
-    gap: 20px; /* Adjust gap between skills */
-    padding: 40px;
+
+    margin: auto;
+    position: relative;
+    z-index: 1;
   }
   
-  .text-content {
-    max-width: 100%;
-    color: white;
+  /* Individual Skill Column */
+  .skills-column {
+    flex: 1;
+    background: rgba(255, 255, 255, 0);
+    padding: 20px 30px;
+    border-radius: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
   }
   
-  .text-content h2 {
-    font-size: 1.5rem;
-    color: #ff80ab; /* Soft pink */
-    margin-bottom: 10px;
+  .skills-column h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ffffff; /* Highlight color */
+    font-size: 1.8rem;
   }
   
-  .skills-list {
+  /* Individual Skills */
+  .skill {
     display: flex;
-    flex-wrap: wrap; /* Allow wrapping if needed */
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
   }
   
-  .skills-list li {
-    font-size: 0.9rem; /* Smaller text */
-    margin-right: 15px;
-    margin-bottom: 10px;
-    padding: 5px 15px;
-    color: white;
-    border: 1px solid white; /* Thin white border */
-    text-transform: capitalize; /* Capitalize the first letter of each skill */
+  .skill-label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ffffff; /* Label color */
+    flex-shrink: 0;
+    width: 120px; /* Fixed width for alignment */
+    text-align: left;
+  }
+  
+  .skill-bar {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.1);
+    height: 12px;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .skill-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #ff80ab, #ffeab6);
+    transition: width 1.5s ease-in-out;
+    border-radius: 6px;
   }
 
-  .skills-list li:hover {
-    font-size: 0.9rem; /* Smaller text */
-    margin-right: 15px;
-    margin-bottom: 10px;
-    padding: 5px 15px;
-    color: #ffffff;
-    background-color: #ff80ab;
-    border: 1px solid #ff80ab; /* Thin white border */
-    text-transform: capitalize; /* Capitalize the first letter of each skill */
-  }
+
   
   /* For smaller screens */
   @media (max-width: 768px) {
@@ -492,7 +523,8 @@ nav {
     color: #ffcccc; /* Soft pink on hover */
   }
   
-  
+
+
 
 
 /* Projects Section */
@@ -501,8 +533,9 @@ nav {
     justify-content: center;
     align-items: center;
     padding: 60px 20px;
-    /* background: #0d0d1a00; Dark background */
-    background-image: url('image/bbb.png'); /* Replace with your image path */
+    /* background: #0d0d1a00;  */
+    background-image: url('image/bbb.png'); 
+    background-position: 50% 50%;
     background-size: cover; /* Ensures the image covers the section */
     background-position: center; /* Centers the image */
     background-repeat: no-repeat; /* Prevents image repetition */
@@ -511,6 +544,7 @@ nav {
 }
 
 .projects-container {
+    z-index: 1;
     width: 100%;
     max-width: 1200px;
     display: flex;
@@ -588,6 +622,15 @@ nav {
     background: #3700b3;
     transform: translateY(-2px);
 }
+
+#projects-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
 
 
 /* Project Images */

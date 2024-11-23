@@ -5,14 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Portfolio</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+
 </head>
 <body>
   <!-- Navbar -->
   <nav>
     <ul>
       <li><a href="#profile">Summary</a></li>
-      <li><a href="#education">Education</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
       <li><a href="#organization">Experience</a></li>
 
 
@@ -39,63 +41,78 @@
     </div>
   </section>
   
-
-  <!-- Skills Section -->
-<section id="skills" class="fade-in-container">
+  <section id="skills">
+    <canvas id="skills-background"></canvas>
     <div class="skills-container">
-      <div class="text-content">
+      <!-- Technical Skills Column -->
+      <div class="skills-column">
         <h2>Technical Skills</h2>
-        <ul class="skills-list">
-          <li>Java</li>
-          <li>Python</li>
-          <li>C#</li>
-          <li>HTML</li>
-          <li>CSS</li>
-          <li>C</li>
-          <li>Javascript</li>
-          <li>SQL</li>
-        </ul>
+        <div class="skill">
+          <div class="skill-label">Java</div>
+          <div class="skill-bar">
+            <div class="skill-fill" data-percent="80"></div>
+          </div>
+        </div>
+        <div class="skill">
+          <div class="skill-label">Python</div>
+          <div class="skill-bar">
+            <div class="skill-fill" data-percent="75"></div>
+          </div>
+        </div>
+        <div class="skill">
+          <div class="skill-label">SQL</div>
+          <div class="skill-bar">
+            <div class="skill-fill" data-percent="85"></div>
+          </div>
+        </div>
+        <div class="skill">
+          <div class="skill-label">HTML & CSS</div>
+          <div class="skill-bar">
+            <div class="skill-fill" data-percent="89"></div>
+          </div>
+        </div>
+        <div class="skill">
+            <div class="skill-label">C#</div>
+            <div class="skill-bar">
+              <div class="skill-fill" data-percent="89"></div>
+            </div>
+          </div>
       </div>
-      <div class="text-content">
+  
+      <!-- Soft Skills Column -->
+      <div class="skills-column">
         <h2>Soft Skills</h2>
-        <ul class="skills-list">
-          <li>Fluent in English</li>
-          <li>Strong teamwork and collaboration skills</li>
-          <li>Excellent communication within teams</li>
-        </ul>
+        <div class="skill">
+          <div class="skill-label">Teamwork</div>
+          <div class="skill-bar">
+            <div class="skill-fill" data-percent="90"></div>
+          </div>
+        </div>
+        <div class="skill">
+          <div class="skill-label">Communication</div>
+          <div class="skill-bar">
+            <div class="skill-fill" data-percent="85"></div>
+          </div>
+        </div>
+        <div class="skill">
+          <div class="skill-label">Problem Solving</div>
+          <div class="skill-bar">
+            <div class="skill-fill" data-percent="80"></div>
+          </div>
+        </div>
+        <div class="skill">
+          <div class="skill-label">Fluent English</div>
+          <div class="skill-bar">
+            <div class="skill-fill" data-percent="95"></div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
   
+  
 
-<!-- Education Section -->
-<section id="education">
-    <div class="education-container">
-        <h2>Education</h2>
-        <!-- University Section -->
-        <div class="item">
-            <div class="item-image">
-                <img src="image/binus.png" alt="Bina Nusantara University Logo">
-            </div>
-            <div class="item-text">
-                <h3>2022 - Now</h3>
-                <h3>Bina Nusantara University</h3>
-                <p><em>Computer Science Major</em></p>
-            </div>
-        </div>
-        <!-- High School Section -->
-        <div class="item">
-            <div class="item-image">
-                <img src="image/eben.png" alt="Eben Haezar Christian School Logo">
-            </div>
-            <div class="item-text">
-                <h3>2019 - 2022</h3>
-                <h3>Eben Haezar Christian School</h3>
-                <p><em>Science major in high school</em></p>
-            </div>
-        </div>
-    </div>
-</section>
+  
 
 
 <section id="projects" >
@@ -237,9 +254,41 @@
         </section>
         
 </section>
+
+
+
+<!-- Education Section -->
+<section id="education">
+    <div class="education-container">
+        <h2>Education</h2>
+        <!-- University Section -->
+        <div class="item">
+            <div class="item-image">
+                <img src="image/binus.png" alt="Bina Nusantara University Logo">
+            </div>
+            <div class="item-text">
+                <h3>2022 - Now</h3>
+                <h3>Bina Nusantara University</h3>
+                <p><em>Computer Science Major</em></p>
+            </div>
+        </div>
+        <!-- High School Section -->
+        <div class="item">
+            <div class="item-image">
+                <img src="image/eben.png" alt="Eben Haezar Christian School Logo">
+            </div>
+            <div class="item-text">
+                <h3>2019 - 2022</h3>
+                <h3>Eben Haezar Christian School</h3>
+                <p><em>Science major in high school</em></p>
+            </div>
+        </div>
+    </div>
+</section>
+
   
   <!-- Organization Section -->
-  <section id="organization" class="fade-in-container">
+  <section id="organization">
     <div class="education-container">
       <h2>Organization</h2>
       <div class="item">
