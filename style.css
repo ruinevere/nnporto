@@ -374,7 +374,7 @@ body {
     .skill-fill {
         height: 100%;
         width: 0%; /* Start animation with 0% width */
-        background: linear-gradient(90deg, #ff80ab, #ffeab6);
+        background: linear-gradient(40deg, #ff80ab, #ffeab6);
         transition: width 1.5s ease-in-out;
         border-radius: 5px;
     }
