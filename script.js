@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 document.addEventListener("DOMContentLoaded", function () {
     const textElement = document.querySelector(".typing-effect");
-    const textToType = "Rebecca Elisabeth Mansjhur.";
+    const textToType = "Rebecca Elisabeth Mansjhur";
     let index = 0;
 
     function typeText() {
