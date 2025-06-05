@@ -36,6 +36,171 @@
   --radius-xl: 1rem;
 }
 
+/* Dark Mode Variables */
+body.dark-mode {
+  --color-text-primary: #E0E6F0; /* Lighter text for dark backgrounds */
+  --color-text-secondary: #94A3B8;
+  --color-text-tertiary: #64748B;
+  --color-background: #0F172A; /* Very dark blue/slate for main background */
+  --color-background-secondary: #1E293B; /* Darker slate for secondary backgrounds */
+  --color-background-tertiary: #334155; /* Medium slate for tertiary elements */
+  
+  /* Accent for Dark Mode - using a lighter grey or a contrasting color */
+  --color-accent: #60A5FA; /* Light blue for contrast, or try #94A3B8 for a muted grey accent */
+  --color-accent-hover: #3B82F6; /* Darker light blue or #64748B for grey hover */
+
+  --color-border: #334155; /* Darker border color */
+  --color-border-light: #1E293B; /* Even darker for subtle borders */
+
+  /* Adjust status colors for dark mode if needed, e.g., by making backgrounds slightly more opaque */
+  --color-success-bg: rgba(16, 185, 129, 0.15); /* Success green with slightly more opaque bg */
+  --color-success-border: rgba(16, 185, 129, 0.3);
+  --color-warning-bg: rgba(245, 158, 11, 0.15);
+  --color-warning-border: rgba(245, 158, 11, 0.3);
+  --color-purple-bg: rgba(139, 92, 246, 0.15);
+  --color-purple-border: rgba(139, 92, 246, 0.3);
+  --color-pink-bg: rgba(236, 72, 153, 0.15);
+  --color-pink-border: rgba(236, 72, 153, 0.3);
+}
+
+/* Ensure smooth transitions for color changes */
+body {
+  /* ... existing body styles ... */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Style for the theme toggle button */
+.theme-toggle-button {
+  background: none;
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-size: 1.2rem; /* Adjust for icon size */
+  line-height: 1;
+  transition: color 0.3s ease, border-color 0.3s ease;
+  margin-left: var(--spacing-lg); /* Spacing from nav links */
+}
+
+.theme-toggle-button:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+/* Specific adjustments for elements in dark mode if needed beyond variables */
+body.dark-mode .hero-title {
+  /* If the gradient text doesn't look good on dark, provide an alternative */
+   background: linear-gradient(135deg, var(--color-text-primary) 0%, var(--color-text-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+body.dark-mode .hero-badge {
+    background: var(--color-background-secondary);
+    color: var(--color-text-secondary);
+    border: 1px solid var(--color-border);
+}
+
+body.dark-mode .skills-category {
+    background: var(--color-background);
+    border: 1px solid var(--color-border);
+}
+body.dark-mode .skill-level-text {
+    background: var(--color-background-tertiary);
+    color: var(--color-text-secondary);
+}
+
+/* Project tabs in dark mode */
+body.dark-mode .project-tabs {
+    background: var(--color-background-secondary);
+    border: 1px solid var(--color-border);
+}
+body.dark-mode .tab-button {
+    color: var(--color-text-secondary);
+}
+body.dark-mode .tab-button.active { /* Uses --color-accent */
+    background: var(--color-accent);
+    color: var(--color-background); /* Text on accent button - make it dark if accent is light */
+}
+body.dark-mode .tab-button.active .tab-icon {
+    stroke: var(--color-background); /* Icon on accent button */
+}
+body.dark-mode .tab-button:hover:not(.active) {
+    color: var(--color-accent);
+    background: var(--color-background-tertiary);
+}
+body.dark-mode .tab-icon {
+    stroke: var(--color-text-secondary);
+}
+body.dark-mode .tab-button:hover:not(.active) .tab-icon {
+    stroke: var(--color-accent);
+}
+
+
+/* Project cards in dark mode */
+body.dark-mode .project-card {
+    background: var(--color-background); /* Slightly lighter than section bg */
+    border: 1px solid var(--color-border);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.1); /* Darker shadow for dark mode */
+}
+body.dark-mode .project-card:hover {
+    border-color: var(--color-accent);
+}
+body.dark-mode .project-card-image {
+    background-color: var(--color-background-tertiary);
+    border-bottom: 1px solid var(--color-border-light);
+}
+body.dark-mode .project-card-title {
+    color: var(--color-text-primary);
+}
+body.dark-mode .project-card-type {
+    color: var(--color-text-secondary);
+}
+body.dark-mode .project-card-description {
+    color: var(--color-text-secondary);
+}
+body.dark-mode .tech-tag {
+    background: var(--color-background-tertiary);
+    color: var(--color-text-secondary);
+    border: 1px solid var(--color-border-light);
+}
+body.dark-mode .project-card-footer {
+    border-top: 1px solid var(--color-border-light);
+}
+body.dark-mode .project-card-link { /* Uses --color-accent */
+    color: var(--color-accent);
+}
+body.dark-mode .project-card-link:hover { /* Uses --color-accent-hover */
+    color: var(--color-accent-hover);
+}
+
+/* Pagination in dark mode */
+body.dark-mode .pagination-button {
+    border: 1px solid var(--color-border);
+    background-color: var(--color-background);
+    color: var(--color-text-secondary);
+}
+body.dark-mode .pagination-button:hover:not(:disabled) { /* Uses --color-accent */
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    background-color: var(--color-background-tertiary);
+}
+body.dark-mode #pageInfo {
+    color: var(--color-text-secondary);
+}
+
+/* Ensure experience items also adapt */
+body.dark-mode .experience-item {
+    background: var(--color-background);
+    border: 1px solid var(--color-border);
+}
+body.dark-mode img.experience-logo-img,
+body.dark-mode .experience-logo {
+    background-color: var(--color-background-secondary);
+}
+
 * {
   margin: 0;
   padding: 0;

@@ -196,3 +196,58 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initial setup for the default active tab's pagination and project card animations
     setupPaginationForActiveTab();
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    // ... (your existing tab, pagination, observer, scroll, footer year JS) ...
+
+    // --- Theme Toggle ---
+    const themeToggleButton = document.getElementById('theme-toggle');
+    const body = document.body;
+    const iconMoon = themeToggleButton ? themeToggleButton.querySelector('.icon-moon') : null;
+    const iconSun = themeToggleButton ? themeToggleButton.querySelector('.icon-sun') : null;
+
+    // Function to apply theme and update button
+    function applyTheme(theme) {
+        if (theme === 'dark') {
+            body.classList.add('dark-mode');
+            if (iconMoon) iconMoon.style.display = 'none';
+            if (iconSun) iconSun.style.display = 'inline';
+        } else {
+            body.classList.remove('dark-mode');
+            if (iconMoon) iconMoon.style.display = 'inline';
+            if (iconSun) iconSun.style.display = 'none';
+        }
+    }
+
+    if (themeToggleButton) {
+        themeToggleButton.addEventListener('click', () => {
+            let newTheme;
+            if (body.classList.contains('dark-mode')) {
+                newTheme = 'light';
+            } else {
+                newTheme = 'dark';
+            }
+            applyTheme(newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    }
+
+    // Check for saved theme in localStorage or system preference
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+    if (savedTheme) {
+        applyTheme(savedTheme);
+    } else if (prefersDarkScheme.matches) {
+        applyTheme('dark');
+    } else {
+        applyTheme('light'); // Default to light if no preference or saved theme
+    }
+
+    // Listen for changes in system preference
+    prefersDarkScheme.addEventListener('change', (e) => {
+        if (!localStorage.getItem('theme')) { // Only apply if no user override
+            applyTheme(e.matches ? 'dark' : 'light');
+        }
+    });
+});
