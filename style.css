@@ -201,6 +201,48 @@ body.dark-mode .experience-logo {
     background-color: var(--color-background-secondary);
 }
 
+body.dark-mode nav {
+  /* For rgba background, you need the RGB components. 
+    If --color-background-secondary in dark mode is #1E293B (which is rgb(30, 41, 59)), 
+    then the rgba value would be rgba(30, 41, 59, 0.9).
+    Alternatively, use a solid color or a variable that represents a slightly lighter dark shade.
+    Let's use a solid color from your dark theme variables for simplicity here, 
+    or you can define RGB component variables.
+  */
+  background: rgba(30, 41, 59, 0.85); /* Example: Based on --color-background-secondary: #1E293B with alpha */
+  /* Or, for a solid color: background: var(--color-background-secondary); */
+  backdrop-filter: blur(12px); /* Keep the blur effect */
+  border-bottom: 1px solid var(--color-border-light); /* Uses dark mode's --color-border-light */
+}
+
+body.dark-mode .nav-links a {
+  color: var(--color-text-secondary); /* Uses dark mode's --color-text-secondary */
+}
+
+body.dark-mode .nav-links a:hover {
+  color: var(--color-text-primary); /* Uses dark mode's --color-text-primary */
+  background-color: var(--color-background-tertiary); /* Uses dark mode's --color-background-tertiary */
+}
+
+body.dark-mode .theme-toggle-button {
+  border: 1px solid var(--color-border); /* Uses dark mode's --color-border */
+  color: var(--color-text-secondary); /* Uses dark mode's --color-text-secondary */
+}
+
+body.dark-mode .theme-toggle-button:hover {
+  color: var(--color-accent); /* Uses dark mode's --color-accent */
+  border-color: var(--color-accent); /* Uses dark mode's --color-accent */
+}
+
+/* If your theme toggle button icons need specific color changes for dark mode */
+body.dark-mode .theme-toggle-button .icon-moon,
+body.dark-mode .theme-toggle-button .icon-sun {
+    /* The JS already handles display:none/inline for these based on theme. */
+    /* If their color needs to change beyond the button's color property, style them here. */
+    /* For example, if they were SVGs with fill="currentColor", they'd adapt. */
+    /* If they are text emojis, the button's color should suffice. */
+}
+
 * {
   margin: 0;
   padding: 0;
