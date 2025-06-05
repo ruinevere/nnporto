@@ -1,313 +1,198 @@
-// Smooth scrolling for navbar links
-document.querySelectorAll('nav ul li a').forEach(link => {
-    link.addEventListener('click', event => {
-      event.preventDefault();
-      const targetId = link.getAttribute('href').substring(1);
-      const targetSection = document.getElementById(targetId);
-      window.scrollTo({
-        top: targetSection.offsetTop - 50, // Adjust for navbar height
-        behavior: 'smooth'
-      });
-    });
-  });
-  
-  // Add interactivity for image popup
-  document.querySelectorAll('.project img').forEach(img => {
-    img.addEventListener('click', () => {
-      const popup = document.createElement('div');
-      popup.style.position = 'fixed';
-      popup.style.top = '50%';
-      popup.style.left = '50%';
-      popup.style.transform = 'translate(-50%, -50%)';
-      popup.style.background = 'rgba(0, 0, 0, 0.9)';
-      popup.style.padding = '20px';
-      popup.style.borderRadius = '10px';
-      popup.style.boxShadow = '0 4px 10px rgba(0, 0, 0, 0.5)';
-      popup.innerHTML = `<img src="${img.src}" style="width:100%; height:auto; border-radius:10px;">
-                         <p style="color:white; margin-top:10px;">${img.alt}</p>`;
-      document.body.appendChild(popup);
-  
-      popup.addEventListener('click', () => popup.remove());
-    });
-  });
+document.addEventListener('DOMContentLoaded', function() {
+    // --- Tab Switching for Projects ---
+    const tabButtons = document.querySelectorAll('.project-tabs .tab-button');
+    const tabContents = document.querySelectorAll('.projects-grid-container .tab-content');
 
-// Select all project items
-const projectItems = document.querySelectorAll('.project-item');
+    tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const tabName = button.dataset.tab;
 
-// Function to add "visible" class when element is in view
-function handleScroll() {
-    projectItems.forEach((item) => {
-        const rect = item.getBoundingClientRect();
-        if (rect.top < window.innerHeight - 100) {
-            item.classList.add('visible');
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+                if (content.id === tabName + '-tab-content') {
+                    content.classList.add('active');
+                }
+            });
+            setupPaginationForActiveTab();
+        });
+    });
+
+    // --- Pagination for Projects (Tab-aware) ---
+    const projectsPerPage = 3; // Show 3 projects per page
+    let currentPage = 1;
+    let currentProjectCards = [];
+    let totalPages = 1;
+
+    const prevPageButton = document.getElementById('prevPageButton');
+    const nextPageButton = document.getElementById('nextPageButton');
+    const pageInfo = document.getElementById('pageInfo');
+    const paginationControls = document.getElementById('paginationControls');
+
+    function setupPaginationForActiveTab() {
+        currentPage = 1; 
+        const activeTabContent = document.querySelector('.tab-content.active');
+        if (!activeTabContent) {
+            if(paginationControls) paginationControls.style.display = 'none';
+            return;
+        }
+        const activeGrid = activeTabContent.querySelector('.projects-grid');
+        if (!activeGrid) {
+             if(paginationControls) paginationControls.style.display = 'none';
+            return;
+        }
+        
+        currentProjectCards = Array.from(activeGrid.getElementsByClassName('project-card'));
+        const totalProjects = currentProjectCards.length;
+        totalPages = Math.ceil(totalProjects / projectsPerPage);
+        
+        if (totalPages <= 1) {
+            if(paginationControls) paginationControls.style.display = 'none';
         } else {
-            item.classList.remove('visible');
+            if(paginationControls) paginationControls.style.display = 'flex';
         }
-    });
-}
+        displayProjects(); // This will also handle initial staggering for the active tab's cards
+    }
 
-// Add event listener to window for scrolling
-window.addEventListener('scroll', handleScroll);
+    function displayProjects() {
+        if (currentProjectCards.length === 0) {
+             // Optionally display a message if the grid is empty
+            const activeGrid = document.querySelector('.tab-content.active .projects-grid');
+            if(activeGrid && activeGrid.innerHTML.trim() === '') { // Check if grid is truly empty or just cards hidden
+                 // activeGrid.innerHTML = "<p class='text-secondary' style='text-align:center;'>No projects in this category yet.</p>";
+            }
+            return;
+        }
+        
+        const startIndex = (currentPage - 1) * projectsPerPage;
+        const endIndex = startIndex + projectsPerPage;
+        let visibleCardDelay = 0; // For staggering visible cards
 
-// Initial check to reveal elements already in view
-handleScroll();
+        currentProjectCards.forEach((card, index) => {
+            // Reset states for all cards in the current tab before applying pagination
+            card.classList.remove('visible');
+            card.style.transitionDelay = '0ms';
 
-document.addEventListener("DOMContentLoaded", function () {
-    const faders = document.querySelectorAll(".fade-in");
+            if (index >= startIndex && index < endIndex) {
+                card.style.display = 'flex'; 
+                // Stagger animation for cards being displayed on this page
+                // Ensure .fade-in class is on the card for CSS to pick up initial state
+                if (!card.classList.contains('fade-in')) {
+                    card.classList.add('fade-in');
+                }
+                setTimeout(() => { // Apply delay and visibility
+                    card.style.transitionDelay = `${visibleCardDelay * 100}ms`;
+                    card.classList.add('visible');
+                    visibleCardDelay++;
+                }, 50); // Small timeout to ensure styles apply correctly for transition
 
-    const appearOptions = {
-        threshold: 0.5,
-        rootMargin: "0px 0px -100px 0px"
+            } else {
+                card.style.display = 'none';
+            }
+        });
+
+        if (pageInfo) {
+            pageInfo.textContent = `Page ${currentPage} of ${totalPages}`;
+        }
+        if (prevPageButton) {
+            prevPageButton.disabled = currentPage === 1;
+        }
+        if (nextPageButton) {
+            nextPageButton.disabled = currentPage === totalPages || totalPages === 0;
+        }
+    }
+
+    if (prevPageButton) {
+        prevPageButton.addEventListener('click', () => {
+            if (currentPage > 1) {
+                currentPage--;
+                displayProjects();
+            }
+        });
+    }
+
+    if (nextPageButton) {
+        nextPageButton.addEventListener('click', () => {
+            if (currentPage < totalPages) {
+                currentPage++;
+                displayProjects();
+            }
+        });
+    }
+
+    // --- Intersection Observer for general .fade-in elements (non-project cards) ---
+    const generalFadeInObserverOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
     };
-
-    const appearOnScroll = new IntersectionObserver(function (entries, appearOnScroll) {
+    const generalFadeInObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
-            if (!entry.isIntersecting) {
-                return;
-            }
-            entry.target.classList.add("show");
-            appearOnScroll.unobserve(entry.target);
-        });
-    }, appearOptions);
-
-    faders.forEach(fader => {
-        appearOnScroll.observe(fader);
-    });
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-    const textElement = document.querySelector(".typing-effect");
-    const textToType = "Rebecca Elisabeth Mansjhur";
-    let index = 0;
-
-    function typeText() {
-        if (index < textToType.length) {
-            textElement.textContent += textToType[index];
-            index++;
-            setTimeout(typeText, 100); // Adjust speed of typing here
-        }
-    }
-
-    typeText();
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-    const fadeInContainers = document.querySelectorAll(".fade-in-container");
-
-    function isInViewport(element) {
-        const rect = element.getBoundingClientRect();
-        return (
-            rect.top >= 0 &&
-            rect.left >= 0 &&
-            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-        );
-    }
-
-    function checkVisibility() {
-        fadeInContainers.forEach(container => {
-            if (isInViewport(container)) {
-                container.classList.add("visible");
+            if (entry.isIntersecting) {
+                // Check if it's a project card, those are handled by displayProjects
+                if (!entry.target.classList.contains('project-card')) {
+                    entry.target.classList.add('visible');
+                }
+                // Unobserve general elements after they become visible if not project cards
+                // Project cards are not observed by this one anyway
+                if (!entry.target.classList.contains('project-card')) {
+                    observer.unobserve(entry.target);
+                }
             }
         });
-    }
+    }, generalFadeInObserverOptions);
 
-    // Check visibility on scroll
-    window.addEventListener("scroll", checkVisibility);
-
-    // Check visibility on page load
-    checkVisibility();
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-    const projectsSection = document.querySelector("#projects");
-    let angle = 0;
-
-    function animateBackground() {
-        // Convert angle to radians
-        const x = Math.sin(angle) * 50 + 50; // X-axis oscillates between 0% and 100%
-        const y = Math.cos(angle) * 50 + 50; // Y-axis oscillates between 0% and 100%
-
-        // Update background position
-        projectsSection.style.backgroundPosition = `${x}% ${y}%`;
-
-        // Increment angle for the next frame
-        angle += 0.001; // Adjust this value for speed (smaller = slower)
-
-        // Keep looping the animation
-        requestAnimationFrame(animateBackground);
-    }
-
-    animateBackground();
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-    const skillFills = document.querySelectorAll(".skill-fill");
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const percent = entry.target.getAttribute("data-percent");
-            entry.target.style.width = percent + "%";
-          }
-        });
-      },
-      {
-        threshold: 0.1, // Trigger when 10% of the element is visible
-      }
-    );
-  
-    skillFills.forEach((fill) => observer.observe(fill));
-  });
-  
-  document.addEventListener("DOMContentLoaded", () => {
-    const technicalIcon = document.querySelector(".technical-icon");
-    const softIcon = document.querySelector(".soft-icon");
-  
-    // Add hover effect to icons
-    technicalIcon.addEventListener("mouseenter", () => {
-      technicalIcon.style.transform = "scale(1.2)";
+    // Apply to general .fade-in elements, excluding project cards
+    document.querySelectorAll('.fade-in:not(.project-card)').forEach(el => {
+        generalFadeInObserver.observe(el);
     });
-  
-    technicalIcon.addEventListener("mouseleave", () => {
-      technicalIcon.style.transform = "scale(1)";
-    });
-  
-    softIcon.addEventListener("mouseenter", () => {
-      softIcon.style.transform = "scale(1.2)";
-    });
-  
-    softIcon.addEventListener("mouseleave", () => {
-      softIcon.style.transform = "scale(1)";
-    });
-  
-    // Fade-in icons on scroll
-    const fadeInIcons = () => {
-      const technicalPos = technicalIcon.getBoundingClientRect().top;
-      const softPos = softIcon.getBoundingClientRect().top;
-      const windowHeight = window.innerHeight;
-  
-      if (technicalPos < windowHeight) {
-        technicalIcon.style.opacity = "1";
-      }
-      if (softPos < windowHeight) {
-        softIcon.style.opacity = "1";
-      }
+
+    // --- Interactive Skill Bar Animation ---
+    const skillBarObserverOptions = {
+        threshold: 0.5,
     };
-  
-    window.addEventListener("scroll", fadeInIcons);
-  
-    // Initial state
-    technicalIcon.style.opacity = "0";
-    softIcon.style.opacity = "0";
-  });
+    const skillBarObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const skillBarFill = entry.target.querySelector('.skill-bar-fill');
+                if (skillBarFill) {
+                    const level = skillBarFill.dataset.skillLevel || '0';
+                    skillBarFill.style.width = level + '%';
+                }
+                observer.unobserve(entry.target);
+            }
+        });
+    }, skillBarObserverOptions);
 
-  document.addEventListener("DOMContentLoaded", () => {
-    const canvas = document.getElementById("skills-background");
-    const ctx = canvas.getContext("2d");
-  
-    canvas.width = window.innerWidth;
-    canvas.height = document.getElementById("skills").offsetHeight;
-  
-    const particles = [];
-    const particleCount = 100;
-    const maxDistance = 150;
-  
-    // Particle class
-    class Particle {
-      constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.vx = Math.random() * 2 - 1; // Random velocity X
-        this.vy = Math.random() * 2 - 1; // Random velocity Y
-        this.size = Math.random() * 3 + 1;
-      }
-  
-      draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = "#ff80ab";
-        ctx.fill();
-      }
-  
-      update() {
-        this.x += this.vx;
-        this.y += this.vy;
-  
-        // Bounce off walls
-        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
-      }
-    }
-  
-    // Create particles
-    for (let i = 0; i < particleCount; i++) {
-      particles.push(new Particle());
-    }
-  
-    // Draw lines between nearby particles
-    function drawLines() {
-      for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-          const dx = particles[i].x - particles[j].x;
-          const dy = particles[i].y - particles[j].y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-  
-          if (distance < maxDistance) {
-            ctx.beginPath();
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `rgba(255, 128, 171, ${1 - distance / maxDistance})`;
-            ctx.lineWidth = 0.5;
-            ctx.stroke();
-          }
-        }
-      }
-    }
-  
-    // Animation loop
-    function animate() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-  
-      particles.forEach((particle) => {
-        particle.update();
-        particle.draw();
-      });
-  
-      drawLines();
-  
-      requestAnimationFrame(animate);
-    }
-  
-    animate();
-  
-    // Adjust canvas size on window resize
-    window.addEventListener("resize", () => {
-      canvas.width = window.innerWidth;
-      canvas.height = document.getElementById("skills").offsetHeight;
+    document.querySelectorAll('.skill-item-interactive').forEach(item => {
+        skillBarObserver.observe(item);
     });
-  });
-  
-  let currentSlide = 0;
 
-  function moveSlide(direction) {
-    const slides = document.querySelectorAll('.carousel-slide');
-    const totalSlides = slides.length;
-  
-    // Update the currentSlide index
-    currentSlide += direction;
-  
-    if (currentSlide < 0) {
-      currentSlide = totalSlides - 1; // Loop to the last slide
-    } else if (currentSlide >= totalSlides) {
-      currentSlide = 0; // Loop back to the first slide
+    // --- Smooth Scrolling for navigation links ---
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                const navbarHeight = document.querySelector('nav')?.offsetHeight || 70; 
+                const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                const offsetPosition = elementPosition - navbarHeight;
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+    
+    // --- Footer Year Update ---
+    const currentYearEl = document.getElementById('currentYear');
+    if (currentYearEl) {
+        currentYearEl.textContent = new Date().getFullYear();
     }
-  
-    // Move the carousel by changing the transform property
-    const carouselContainer = document.querySelector('.carousel-container');
-    carouselContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
-  }
-  
 
-
- 
+    // Initial setup for the default active tab's pagination and project card animations
+    setupPaginationForActiveTab();
+});

@@ -3,418 +3,391 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Portfolio</title>
+  <title>Rebecca Mansjhur - Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
-
 </head>
 <body>
-  <!-- Navbar -->
   <nav>
-    
-    <ul>
-      <li><a href="#profile">Summary</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#education">Education</a></li>
-      <li><a href="#organization">Experience</a></li>
-
-
-    </ul>
+    <div class="container">
+      <div class="nav-container">
+        <ul class="nav-links">
+          <li><a href="#profile">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#experience">Experience</a></li>
+        </ul>
+      </div>
+    </div>
   </nav>
 
-  <!-- Profile Section -->
-  <section id="profile" class="fade-in" >
-    <div class="profile-container">
-      <div class="text-content">
-        <h2>Hello, I am</h2>
-        <h1><span class="typing-effect"></span></h1>
-        <h3> Computer Science student </h3>
-        <p>
-            Computer Science student with a focus on Software Engineering,
-            Willing to always learn to achieve the best.
-            Interested in developing a website, specifically in front-end development. 
+  <section id="profile" class="section">
+    <div class="container">
+      <div class="hero fade-in">
+        <div class="hero-badge">
+          👋 Available for opportunities
+        </div>
+        <h1 class="text-5xl hero-title">Rebecca Mansjhur</h1>
+        <p class="text-xl text-secondary hero-subtitle">
+          Computer Science student with a focus on Software Engineering. 
+          Passionate about creating exceptional digital experiences through clean, modern design and robust development.
         </p>
-        <a href="https://drive.google.com/file/d/1mSKcyEof4UavQ-gmbmM1cyRKVjePKmwq/view?usp=sharing" class="button">See My CV</a>
-      </div>
-      <!-- <div class="image-content">
-        <img src="image/profile.jpeg" alt="Profile Picture" />
-      </div> -->
-    </div>
-  </section>
-  
-  <section id="skills">
-    <canvas id="skills-background"></canvas>
-    <div class="skills-container">
-      <!-- Technical Skills Column -->
-      <div class="skills-column">
-        <h2>Technical Skills</h2>
-        <div class="skill">
-          <div class="skill-label">Java [intermediate]</div>
-          <div class="skill-bar">
-            <div class="skill-fill" data-percent="80"></div>
-          </div>
-        </div>
-        <div class="skill">
-          <div class="skill-label">Python [intermediate]</div>
-          <div class="skill-bar">
-            <div class="skill-fill" data-percent="75"></div>
-          </div>
-        </div>
-        <div class="skill">
-          <div class="skill-label">SQL [intermediate]</div>
-          <div class="skill-bar">
-            <div class="skill-fill" data-percent="85"></div>
-          </div>
-        </div>
-        <div class="skill">
-          <div class="skill-label">HTML & CSS [intermediate]</div>
-          <div class="skill-bar">
-            <div class="skill-fill" data-percent="89"></div>
-          </div>
-        </div>
-        <div class="skill">
-            <div class="skill-label">C# [begginer]</div>
-            <div class="skill-bar">
-              <div class="skill-fill" data-percent="70"></div>
-            </div>
-          </div>
-      </div>
-  
-      <!-- Soft Skills Column -->
-      <div class="skills-column">
-        <h2>Soft Skills</h2>
-        <div class="skill">
-          <div class="skill-label">Teamwork [advanced]</div>
-          <div class="skill-bar">
-            <div class="skill-fill" data-percent="90"></div>
-          </div>
-        </div>
-        <div class="skill">
-          <div class="skill-label">Communication [intermediate]</div>
-          <div class="skill-bar">
-            <div class="skill-fill" data-percent="85"></div>
-          </div>
-        </div>
-        <div class="skill">
-          <div class="skill-label">Problem Solving [intermediate]</div>
-          <div class="skill-bar">
-            <div class="skill-fill" data-percent="80"></div>
-          </div>
-        </div>
-        <div class="skill">
-          <div class="skill-label">Fluent English [advanced]</div>
-          <div class="skill-bar">
-            <div class="skill-fill" data-percent="95"></div>
-          </div>
-        </div>
+        <a href="https://drive.google.com/file/d/1mSKcyEof4UavQ-gmbmM1cyRKVjePKmwq/view?usp=sharing" 
+           class="hero-cta" target="_blank">
+          View Resume
+          <span>→</span>
+        </a>
       </div>
     </div>
   </section>
-  
-  
 
-  
-
-
-<section id="projects" >
-    <div class="projects-container"  >
-        <h2>Projects</h2>
-        <!-- Project Item 1 -->
-        <div class="project-item">
-            <div class="project-info">
-                <h3>ResQFood</h3>
-                <p> A Surplus Mobile Application</p>
-                <p>> Designing Interactive UI in <strong>Figma </strong> <br>
-                > Developed a mobile application frontend and backend using <strong>Flutter</strong></p>
-                <a href="https://www.figma.com/design/aiJ1w2O9W6kCF5WRSGUclt/ResQFood?node-id=0-1&t=3Siyq6Wq0MFSMGBL-1" class="button" target="_blank">Project Files</a>
+  <section id="skills" class="section" style="background: var(--color-background-secondary);">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2 class="text-4xl section-title">Skills & Expertise</h2>
+        <p class="text-lg text-secondary section-description">
+          Technical and interpersonal skills developed through academic projects and practical experience.
+        </p>
+      </div>
+      
+      <div class="skills-grid">
+        <div class="skills-category fade-in">
+          <h3 class="text-2xl skills-category-title">Technical Skills</h3>
+          
+          <div class="skill-item-interactive">
+            <div class="skill-item-info">
+              <span class="skill-name">Java</span>
+              <span class="skill-level-text">Intermediate</span>
             </div>
-            <div class="project-images">
-                <img src="image/rf1.png" alt="Project 1 Mockup 1" class="slanted-img img1">
-                <img src="image/rf2.png" alt="Project 1 Mockup 2" class="slanted-img img2">
-            </div>
-        </div>
-
-        <!-- Project Item 2 -->
-        <div class="project-item">
-            <div class="project-info">
-                <h3>TrimTasty</h3>
-                <p> A Diet Planner Mobile Application</p>
-                <p>> Designing Interactive UI in <strong>Figma </strong> <br>
-                    > Developed a mobile application with consideration for its design patterns.</p>
-                <a href="https://www.figma.com/design/YCe4yYmsddCVNqw1Qnj4XO/TrimTasty?node-id=0-1&t=bz4IiFMdpMX0Z8KN-1" class="button" target="_blank">Project Files</a>
-            </div>
-            <div class="project-images">
-                <img src="image/tt1.png" alt="Project 1 Mockup 1" class="slanted-img img1">
-                <img src="image/tt2.png" alt="Project 1 Mockup 2" class="slanted-img img2">
-            </div>
-        </div>
-
-        <section id="projects-detection">
-          <div class="projects-container">
-              <!-- Project Item 5 -->
-              <div class="project-item">
-                  <div class="project-info">
-                      <h3>DermaScan</h3>
-                      <p> A Skin Disease Detection Website using Machine Learning</p>
-                      <p>
-                          > Developing FullStack Website using <strong>Laravel</strong> Framework <br>
-                          > Using API to connect laravel and to model on Python
-                      </p>
-                      <a href="https://github.com/puffyzoe/dermascan.git" class="button" target="_blank">Project Files</a>
-                  </div>
-                  <div class="project-image">
-                      <img src="image/derma.png" alt="Project Mockup">
-                  </div>
-              </div>
+            <div class="skill-bar-container">
+              <div class="skill-bar-fill" data-skill-level="75"></div> </div>
           </div>
-      </section>
 
-      <section id="projects-detection" >
-        <div class="projects-container">
-            <!-- Project Item 4 -->
-            <div class="project-item">
-                <div class="project-info">
-                    <h3>GearUp</h3>
-
-                    <p> A Sport Equipment Rental Website</p>
-                    <p>
-                        > Developing FullStack Website using <strong>Laravel</strong> Framework <br>
-                        > Analyze and explore the entrepreneurial side of the website and carry out market validation
-                    </p>
-                    <a href="https://www.figma.com/design/pf0HiQMQ3VeorK2cmEsNIs/Entre?node-id=0-1&t=j6JVfmQbl94qOAZO-1" class="button" target="_blank">Project Files</a>
-                </div>
-                <div class="project-image-carousel">
-                  <div class="carousel-container">
-                    <img class="carousel-slide" src="image/gearup.png" alt="Project Mockup 1">
-                    <img class="carousel-slide" src="image/gearup1.png" alt="Project Mockup 2">
-                    <img class="carousel-slide" src="image/gearup2.png" alt="Project Mockup 3">
-                  </div>
-                  <button class="prev-button" onclick="moveSlide(-1)">&#10094;</button>
-                  <button class="next-button" onclick="moveSlide(1)">&#10095;</button>
-                </div>
+          <div class="skill-item-interactive">
+            <div class="skill-item-info">
+              <span class="skill-name">Python</span>
+              <span class="skill-level-text">Intermediate</span>
             </div>
-        </div>
-    </section>
-
-
-
-        <section id="projects-detection">
-            <div class="projects-container">
-                <!-- Project Item 3 -->
-                <div class="project-item">
-                    <div class="project-info">
-                        <h3>Detecting Pneumonia based on Breathing Sound using Machine Learning</h3>
-                        <p>
-                            > Conducted a literature review and analyzed the use of machine learning in pneumonia detection.<br>
-                            > Developed a workflow and coding using the CNN method with four architectures (MobileNetV2, ResNet50, VGG16, Basic 2D CNN Architecture) in Python.<br>
-                            > Wrote a report containing background and methodology.<br>
-                            > Achieved a satisfactory accuracy for the primary model (MobileNetV2).
-                        </p>
-                        <a href="https://drive.google.com/drive/folders/1Ih7KACjNC8SSBuT28gA_ge2bxxwYeDxi?usp=sharing" class="button" target="_blank">Project Files</a>
-                    </div>
-                    <div class="project-image">
-                        <img src="image/combi1.png" alt="Project Mockup">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects-detection">
-          <div class="projects-container">
-            <!-- Project Item 5 -->
-            <div class="project-item">
-              <div class="project-info">
-                <h3>Calm Website</h3>
-                <p>A Mental Health Website</p>
-                <p>> Designing Interactive UI in Figma</p>
-                <a href="https://www.figma.com/design/ZfuPjCxupt9xFD5FZueERz/WatchGoods?node-id=0-1&t=BGq3BOtzkqOA3InY-1" class="button" target="_blank">Project Files</a>
-              </div>
-              <div class="project-image-carousel">
-                <div class="carousel-container">
-                  <img class="carousel-slide" src="image/calm.png" alt="Project Mockup 1">
-                  <img class="carousel-slide" src="image/calm-2.png" alt="Project Mockup 2">
-                  <img class="carousel-slide" src="image/calm-3.png" alt="Project Mockup 3">
-                </div>
-                <!-- <button class="prev-button" onclick="moveSlide(-1)">&#10094;</button>
-                <button class="next-button" onclick="moveSlide(1)">&#10095;</button> -->
-                
-              </div>
+            <div class="skill-bar-container">
+              <div class="skill-bar-fill" data-skill-level="70"></div>
             </div>
           </div>
-        </section>
 
-        
-        
-
-
-        <section id="projects-detection">
-          <div class="projects-container">
-            <!-- Project Item 5 -->
-            <div class="project-item">
-              <div class="project-info">
-                <h3>WatchGoods Website</h3>
-                <p> A Luxury Watch Reseller Website</p>
-                <p> > Developing UI/UX in HTML, CSS and Javascript <br>
-                  > Designing Interactive UI in Figma</p>
-                <a href="https://www.figma.com/design/ZfuPjCxupt9xFD5FZueERz/WatchGoods?node-id=0-1&t=BGq3BOtzkqOA3InY-1" class="button" target="_blank">Project Files</a>
-              </div>
-              <div class="project-image-carousel">
-                <div class="carousel-container">
-                  <img class="carousel-slide" src="image/wg.png" alt="Project Mockup 1">
-                  <img class="carousel-slide" src="image/wg1.png" alt="Project Mockup 2">
-                  <img class="carousel-slide" src="image/wg2.png" alt="Project Mockup 3">
-                </div>
-                <!-- <button class="prev-button" onclick="moveSlide(-1)">&#10094;</button>
-                <button class="next-button" onclick="moveSlide(1)">&#10095;</button> -->
-              </div>
+          <div class="skill-item-interactive">
+            <div class="skill-item-info">
+              <span class="skill-name">SQL</span>
+              <span class="skill-level-text">Intermediate</span>
+            </div>
+            <div class="skill-bar-container">
+              <div class="skill-bar-fill" data-skill-level="70"></div>
             </div>
           </div>
-        </section>
 
+          <div class="skill-item-interactive">
+            <div class="skill-item-info">
+              <span class="skill-name">HTML & CSS</span>
+              <span class="skill-level-text">Intermediate</span>
+            </div>
+            <div class="skill-bar-container">
+              <div class="skill-bar-fill" data-skill-level="80"></div>
+            </div>
+          </div>
+            <div class="skill-item-interactive">
+            <div class="skill-item-info">
+              <span class="skill-name">C#</span>
+              <span class="skill-level-text">Beginner</span>
+            </div>
+            <div class="skill-bar-container">
+              <div class="skill-bar-fill" data-skill-level="50"></div>
+            </div>
+          </div>
+           <div class="skill-item-interactive">
+            <div class="skill-item-info">
+              <span class="skill-name">Flutter</span>
+              <span class="skill-level-text">Intermediate</span>
+            </div>
+            <div class="skill-bar-container">
+              <div class="skill-bar-fill" data-skill-level="65"></div>
+            </div>
+          </div>
+          </div>
 
-        <section id="projects-detection">
-            <div class="projects-container">
-                <!-- Project Item 5 -->
-                <div class="project-item">
-                    <div class="project-info">
-                        <h3>Comparative Analysis of SMT and NMT for NASA Acronym Expansion</h3>
-                        <p>
-                            > Wrote a scientific research paper titled "A Comparative Analysis of SMT and NMT for NASA Acronym Expansion." <br>
-                            > Developed a machine translation model such as SMT and NMT coding using Python. <br>
-                            >  Designed workflow for each model’s architecture.
-                        </p>
-                        <a href="https://drive.google.com/file/d/16L4KqLv7JF6N_6Rv_LFo0_INZuuY4s_M/view?usp=drive_link" class="button" target="_blank">Project Files</a>
+        <div class="skills-category fade-in">
+          <h3 class="text-2xl skills-category-title">Core Competencies</h3>
+          <div class="skill-item-interactive">
+            <div class="skill-item-info">
+              <span class="skill-name">Teamwork</span>
+              <span class="skill-level-text">Advanced</span>
+            </div>
+            <div class="skill-bar-container">
+              <div class="skill-bar-fill" data-skill-level="90"></div>
+            </div>
+          </div>
+           <div class="skill-item-interactive">
+            <div class="skill-item-info">
+              <span class="skill-name">Communication</span>
+              <span class="skill-level-text">Intermediate</span>
+            </div>
+            <div class="skill-bar-container">
+              <div class="skill-bar-fill" data-skill-level="80"></div>
+            </div>
+          </div>
+          </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="section">
+    <div class="container">
+        <div class="projects-section-header fade-in">
+            <div class="projects-section-title-wrapper">
+                <h2 class="text-4xl section-title">Featured Projects</h2>
+            </div>
+            <div class="projects-section-description-wrapper">
+                <p class="text-lg text-secondary section-description">
+                    A collection of my work, from mobile apps and web development to machine learning research and UI/UX design, categorized by experience.
+                </p>
+            </div>
+        </div>
+
+        <div class="project-tabs-container fade-in">
+            <div class="project-tabs">
+                <button class="tab-button active" data-tab="college">
+                    <svg class="tab-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                    College Projects
+                </button>
+                <button class="tab-button" data-tab="internship">
+                    <svg class="tab-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0H8m8 0v2a2 2 0 01-2 2H10a2 2 0 01-2-2V6m8 0V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2"/></svg>
+                    Internship Projects
+                </button>
+            </div>
+        </div>
+
+        <div class="projects-grid-container fade-in">
+            <div id="college-tab-content" class="tab-content active">
+                <div class="projects-grid" data-stagger-children="true" data-stagger-selector=".project-card">
+                    <div class="project-card">
+                        <div class="project-card-image"><img src="image/rf1.png" alt="ResQFood App Screenshot"></div>
+                        <div class="project-card-content">
+                            <div class="project-card-header">
+                                <div><h3 class="project-card-title">ResQFood</h3><p class="project-card-type">Surplus Food Mobile App</p></div>
+                                <span class="project-card-status status-completed">Completed</span>
+                            </div>
+                            <p class="project-card-description">Mobile app to reduce food waste. UI in Figma, full-stack with Flutter.</p>
+                            <div class="project-card-tech"><span class="tech-tag">Flutter</span><span class="tech-tag">Figma</span><span class="tech-tag">Mobile</span></div>
+                        </div>
+                        <div class="project-card-footer"><a href="https://www.figma.com/design/aiJ1w2O9W6kCF5WRSGUclt/ResQFood?node-id=0-1&t=3Siyq6Wq0MFSMGBL-1" class="project-card-link" target="_blank">View Design <span>→</span></a></div>
                     </div>
-                    <div class="project-image">
-                        <img src="image/research.png" alt="Project Mockup">
+                    <div class="project-card">
+                        <div class="project-card-image"><img src="image/tt1.png" alt="TrimTasty App Screenshot"></div>
+                        <div class="project-card-content">
+                            <div class="project-card-header">
+                                <div><h3 class="project-card-title">TrimTasty</h3><p class="project-card-type">Diet Planner Mobile App</p></div>
+                                <span class="project-card-status status-completed">Completed</span>
+                            </div>
+                            <p class="project-card-description">Mobile app for diet planning, focusing on UX and interactive UI in Figma.</p>
+                            <div class="project-card-tech"><span class="tech-tag">Figma</span><span class="tech-tag">UI/UX</span></div>
+                        </div>
+                        <div class="project-card-footer"><a href="https://www.figma.com/design/YCe4yYmsddCVNqw1Qnj4XO/TrimTasty?node-id=0-1&t=bz4IiFMdpMX0Z8KN-1" class="project-card-link" target="_blank">View Design <span>→</span></a></div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-card-image"><img src="image/derma.png" alt="DermaScan Website Screenshot"></div>
+                        <div class="project-card-content">
+                            <div class="project-card-header">
+                                <div><h3 class="project-card-title">DermaScan</h3><p class="project-card-type">Skin Disease Detection Website</p></div>
+                                <span class="project-card-status status-completed">Completed</span>
+                            </div>
+                            <p class="project-card-description">Full-stack website using Laravel & ML for skin disease detection. Python API for model interaction.</p>
+                            <div class="project-card-tech"><span class="tech-tag">Laravel</span><span class="tech-tag">Python</span><span class="tech-tag">ML</span></div>
+                        </div>
+                        <div class="project-card-footer"><a href="https://github.com/puffyzoe/dermascan.git" class="project-card-link" target="_blank">View on GitHub <span>→</span></a></div>
+                    </div>
+                     <div class="project-card">
+                        <div class="project-card-image"><img src="image/gearup.png" alt="GearUp Website Design"></div>
+                        <div class="project-card-content">
+                            <div class="project-card-header">
+                                <div><h3 class="project-card-title">GearUp</h3><p class="project-card-type">Sport Equipment Rental Website</p></div>
+                                <span class="project-card-status status-design">Design</span>
+                            </div>
+                            <p class="project-card-description">Laravel-based website concept for sport equipment rental, including market validation.</p>
+                             <div class="project-card-tech"><span class="tech-tag">Laravel</span><span class="tech-tag">Figma</span></div>
+                        </div>
+                        <div class="project-card-footer"><a href="https://www.figma.com/design/pf0HiQMQ3VeorK2cmEsNIs/Entre?node-id=0-1&t=j6JVfmQbl94qOAZO-1" class="project-card-link" target="_blank">View Design <span>→</span></a></div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-card-image"><img src="image/combi1.png" alt="Pneumonia Detection Research Visual"></div>
+                        <div class="project-card-content">
+                            <div class="project-card-header">
+                                <div><h3 class="project-card-title">Pneumonia Detection ML</h3><p class="project-card-type">Machine Learning Research</p></div>
+                                 <span class="project-card-status status-research">Research</span>
+                            </div>
+                            <p class="project-card-description">CNN model development (MobileNetV2, ResNet50, etc.) in Python for pneumonia detection from sounds.</p>
+                            <div class="project-card-tech"><span class="tech-tag">Python</span><span class="tech-tag">CNN</span><span class="tech-tag">ML</span></div>
+                        </div>
+                        <div class="project-card-footer"><a href="https://drive.google.com/drive/folders/1Ih7KACjNC8SSBuT28gA_ge2bxxwYeDxi?usp=sharing" class="project-card-link" target="_blank">View Files <span>→</span></a></div>
+                    </div>
+                     <div class="project-card">
+                        <div class="project-card-image"><img src="image/calm.png" alt="Calm Website Design"></div>
+                        <div class="project-card-content">
+                           <div class="project-card-header">
+                                <div><h3 class="project-card-title">Calm Website</h3><p class="project-card-type">Mental Health UI/UX Design</p></div>
+                                <span class="project-card-status status-design">Design</span>
+                            </div>
+                            <p class="project-card-description">Interactive UI design in Figma for a mental health support website.</p>
+                            <div class="project-card-tech"><span class="tech-tag">Figma</span><span class="tech-tag">UI/UX</span></div>
+                        </div>
+                        <div class="project-card-footer"><a href="https://www.figma.com/design/ZfuPjCxupt9xFD5FZueERz/WatchGoods?node-id=0-1&t=BGq3BOtzkqOA3InY-1" class="project-card-link" target="_blank">View Design <span>→</span></a></div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-card-image"><img src="image/wg.png" alt="WatchGoods Website Design"></div>
+                        <div class="project-card-content">
+                            <div class="project-card-header">
+                                <div><h3 class="project-card-title">WatchGoods Website</h3><p class="project-card-type">Luxury Watch Reseller UI/UX</p></div>
+                                <span class="project-card-status status-completed">Completed</span>
+                            </div>
+                            <p class="project-card-description">UI/UX dev (HTML, CSS, JS) & Figma design for a luxury watch reseller platform.</p>
+                            <div class="project-card-tech"><span class="tech-tag">HTML</span><span class="tech-tag">CSS</span><span class="tech-tag">JS</span><span class="tech-tag">Figma</span></div>
+                        </div>
+                        <div class="project-card-footer"><a href="https://www.figma.com/design/ZfuPjCxupt9xFD5FZueERz/WatchGoods?node-id=0-1&t=BGq3BOtzkqOA3InY-1" class="project-card-link" target="_blank">View Design <span>→</span></a></div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-card-image"><img src="image/research.png" alt="NASA Acronym Research Visual"></div>
+                        <div class="project-card-content">
+                            <div class="project-card-header">
+                                <div><h3 class="project-card-title">NASA Acronym NMT/SMT</h3><p class="project-card-type">NLP Research Paper</p></div>
+                                <span class="project-card-status status-research">Research</span>
+                            </div>
+                            <p class="project-card-description">Scientific paper on SMT vs. NMT for NASA acronym expansion, with Python model development.</p>
+                            <div class="project-card-tech"><span class="tech-tag">Python</span><span class="tech-tag">NLP</span></div>
+                        </div>
+                        <div class="project-card-footer"><a href="https://drive.google.com/file/d/16L4KqLv7JF6N_6Rv_LFo0_INZuuY4s_M/view?usp=drive_link" class="project-card-link" target="_blank">View Paper <span>→</span></a></div>
                     </div>
                 </div>
             </div>
-        </section>
 
-
-        
-</section>
-
-
-
-<!-- Education Section -->
-<section id="education">
-    <div class="education-container">
-        <h2>Education</h2>
-        <!-- University Section -->
-        <div class="item">
-            <div class="item-image">
-                <img src="image/binus.png" alt="Bina Nusantara University Logo">
-            </div>
-            <div class="item-text">
-                <h3>2022 - Now</h3>
-                <h3>Bina Nusantara University</h3>
-                <p><em>Computer Science Major</em></p>
+            <div id="internship-tab-content" class="tab-content">
+                <div class="projects-grid" data-stagger-children="true" data-stagger-selector=".project-card">
+                    <div class="project-card">
+                        <div class="project-card-image"><span style="font-size: 2rem; color: var(--color-text-tertiary);">⏳</span></div>
+                        <div class="project-card-content">
+                           <div class="project-card-header">
+                                <div><h3 class="project-card-title">Future Internship Project</h3><p class="project-card-type">Coming Soon</p></div>
+                            </div>
+                            <p class="project-card-description">Details about internship projects will be updated here. Stay tuned!</p>
+                             <div class="project-card-tech"><span class="tech-tag">TBD</span></div>
+                        </div>
+                        <div class="project-card-footer"><a href="#" class="project-card-link" style="pointer-events: none; color: var(--color-text-tertiary);">Details Soon <span>→</span></a></div>
+                    </div>
+                </div>
             </div>
         </div>
-        <!-- High School Section -->
-        <div class="item">
-            <div class="item-image">
-                <img src="image/eben.png" alt="Eben Haezar Christian School Logo">
-            </div>
-            <div class="item-text">
-                <h3>2019 - 2022</h3>
-                <h3>Eben Haezar Christian School</h3>
-                <p><em>Science major in high school</em></p>
-            </div>
+
+        <div class="pagination-controls fade-in" id="paginationControls">
+            <button id="prevPageButton" class="pagination-button" disabled>
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></svg>
+                Previous
+            </button>
+            <span id="pageInfo">Page 1 of X</span>
+            <button id="nextPageButton" class="pagination-button">
+                Next
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"></path></svg>
+            </button>
         </div>
     </div>
-</section>
+  </section>
 
-  
-  <!-- Organization Section -->
-  <section id="organization">
-    <div class="education-container">
-      <h2>Organization</h2>
-      <div class="item">
-        <div class="item-image">
-          <img src="image/bdm.png" alt="Bersama Dalam Musik Logo">
+  <section id="education" class="section" style="background: var(--color-background-secondary);">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2 class="text-4xl section-title">Education</h2>
+      </div>
+      <div class="experience-list">
+        <div class="experience-item fade-in">
+          <img src="image/binus.png" alt="Bina Nusantara University Logo" class="experience-logo-img">
+          <div class="experience-content">
+            <div class="experience-header">
+              <div><h3 class="experience-title">Bina Nusantara University</h3><p class="experience-company">Computer Science Major</p></div>
+              <span class="experience-period">2022 - Present</span>
+            </div>
+          </div>
         </div>
-        <div class="item-text">
-          <h3>2023 - 2024</h3>
-          <p>Bersama Dalam Musik</p>
-          <p><em>Coordinator Assistant in Design and Documentation field</em></p>
+        <div class="experience-item fade-in">
+          <img src="image/eben.png" alt="Eben Haezar Christian School Logo" class="experience-logo-img">
+          <div class="experience-content">
+            <div class="experience-header">
+              <div><h3 class="experience-title">Eben Haezar Christian School</h3><p class="experience-company">Science Major</p></div>
+              <span class="experience-period">2019 - 2022</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
-  
-<!-- Volunteer Section -->
-<section id="volunteer">
-    <div class="education-container">
-        <h2>Volunteer</h2>
-        <!-- Tzu Chi Volunteer -->
-        <div class="item">
-            <div class="item-image">
-                <img src="image/tc1.png" alt="Volunteer Activity Image 1">
-                <!-- <img src="image/tc2.png" alt="Volunteer Activity Image 2"> -->
-            </div>
-            <div class="item-text">
-                <p>May 2024</p>
-                <h3>Tzu Chi - Environmental Conservation Volunteer</h3>
-                <ul>
-                    <li>Attended socialization and sharing session held by Tzu Chi</li>
-                    <li>Sorted waste according to categories</li>
-                </ul>
-            </div>
-        </div>
-        <!-- Tangan Kasih Foundation -->
-        <div class="item">
-            <div class="item-image">
-                <img src="image/cb1.png" alt="Volunteer Activity Image 3">
-                <!-- <img src="image/cb2.png" alt="Volunteer Activity Image 4"> -->
-            </div>
-            <div class="item-text">
-                <p>November 2023, June 2023, December 2022</p>
-                <h3>Tangan Kasih Foundation - Community Engagement</h3>
-                <ul>
-                    <li>Organized an outreach activity to an orphanage with themes of bullying, religious tolerance, and citizenship</li>
-                    <li>Held a sharing session with the children at Tangan Kasih Orphanage</li>
-                </ul>
 
+  <section id="experience" class="section">
+    <div class="container">
+      <div class="section-header fade-in">
+        <h2 class="text-4xl section-title">Experience & Volunteer Work</h2>
+      </div>
+      <div class="experience-list">
+        <div class="experience-item fade-in">
+          <img src="image/bdm.png" alt="Bersama Dalam Musik Logo" class="experience-logo-img">
+          <div class="experience-content">
+            <div class="experience-header">
+              <div><h3 class="experience-title">Coordinator Assistant</h3><p class="experience-company">Bersama Dalam Musik (University Organization)</p></div>
+              <span class="experience-period">2023 - 2024</span>
             </div>
+            <p class="experience-description">Assisted in coordinating the Design and Documentation division, managing visual content and event records.</p>
+          </div>
         </div>
+        <div class="experience-item fade-in">
+          <img src="image/tc1.png" alt="Tzu Chi Foundation Logo" class="experience-logo-img">
+          <div class="experience-content">
+            <div class="experience-header">
+              <div><h3 class="experience-title">Environmental Conservation Volunteer</h3><p class="experience-company">Tzu Chi Foundation</p></div>
+              <span class="experience-period">May 2024</span>
+            </div>
+            <ul class="experience-description">
+                <li>Attended socialization and sharing sessions on environmentalism.</li>
+                <li>Actively participated in sorting waste materials according to specified categories for recycling and proper disposal.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="experience-item fade-in">
+          <img src="image/cb1.png" alt="Tangan Kasih Foundation Logo" class="experience-logo-img">
+          <div class="experience-content">
+            <div class="experience-header">
+              <div><h3 class="experience-title">Community Engagement Volunteer</h3><p class="experience-company">Tangan Kasih Foundation</p></div>
+              <span class="experience-period">2022 - 2023 (Multiple Events)</span>
+            </div>
+             <ul class="experience-description">
+                <li>Organized and facilitated outreach activities to an orphanage, covering topics such as bullying awareness, religious tolerance, and citizenship.</li>
+                <li>Conducted sharing sessions and interactive activities with children at Tangan Kasih Orphanage.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
-</section>
+  </section>
 
-
-<div class="ending">
-    <h3><span class="typing-effect"></span><h3></h3>
-</div>
-
-
-
-
-
-<footer>
-    <div class="footer-container">
-        <div class="footer-links">
-            <!-- LinkedIn -->
-            <a href="www.linkedin.com/in/rebecca-mansjhur-248ba532b" target="_blank" class="footer-link">
-                <img src="image/in.png" alt="LinkedIn Logo">
-                LinkedIn
-            </a>
-            <!-- WhatsApp -->
-            <a href="https://wa.me/082346301108" target="_blank" class="footer-link">
-                <img src="image/wa.png" alt="WhatsApp Logo">
-                WhatsApp
-            </a>
-            <!-- Email -->
-            <a href="mailto:rebeccamnsjh@gmail.com" class="footer-link">
-                <img src="image/mail.png" alt="Email Logo">
-                Gmail
-            </a>
-        </div>
-        <p class="footer-ending">Let’s create something amazing together!</p>
+  <footer>
+    <div class="container">
+      <div class="footer-heading">Let's Connect!</div>
+      <div class="footer-content">
+        <a href="https://www.linkedin.com/in/rebecca-mansjhur-248ba532b" class="footer-link" target="_blank">
+          <img src="image/in.png" alt="LinkedIn" class="footer-icon"> LinkedIn
+        </a>
+        <a href="https://wa.me/082346301108" class="footer-link" target="_blank">
+          <img src="image/wa.png" alt="WhatsApp" class="footer-icon"> WhatsApp
+        </a>
+        <a href="mailto:rebeccamnsjh@gmail.com" class="footer-link">
+          <img src="image/mail.png" alt="Email" class="footer-icon"> Email
+        </a>
+      </div>
+      <p class="footer-text">© <span id="currentYear"></span> Rebecca Mansjhur. Passionate about building the future, one line of code at a time.</p>
     </div>
-</footer>
-
+  </footer>
 
   <script src="script.js"></script>
 </body>
