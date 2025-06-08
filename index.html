@@ -12,16 +12,16 @@
     <div class="container">
       <div class="nav-container">
         <ul class="nav-links">
-          <li><a href="#profile">About</a></li>
+          <li><a href="#profile">About Me</a></li>
           <li><a href="#skills">Skills</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#education">Education</a></li>
           <li><a href="#experience">Experience</a></li>
         </ul>
-        <button id="theme-toggle" class="theme-toggle-button" aria-label="Toggle theme">
+        <!-- <button id="theme-toggle" class="theme-toggle-button" aria-label="Toggle theme">
           <span class="icon-moon">🌙</span>
           <span class="icon-sun" style="display:none;">☀️</span>
-        </button>
+        </button> -->
       </div>
     </div>
 </nav>
@@ -36,7 +36,7 @@
           Computer Science student with a focus on Software Engineering. Passionate about creating exceptional digital experiences through clean, modern design and robust development.
         </p>
         <a href="https://drive.google.com/file/d/1mSKcyEof4UavQ-gmbmM1cyRKVjePKmwq/view?usp=sharing" class="hero-cta" target="_blank">
-          View Resume <span>→</span>
+          Check Resume <span>→</span>
         </a>
       </div>
       <div class="hero-image-wrapper">
@@ -237,7 +237,7 @@
             <div class="project-tabs">
                 <button class="tab-button active" data-tab="college">
                     <svg class="tab-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
-                    College Projects
+                    College & Personal Projects
                 </button>
                 <button class="tab-button" data-tab="internship">
                     <svg class="tab-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0H8m8 0v2a2 2 0 01-2 2H10a2 2 0 01-2-2V6m8 0V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2"/></svg>
@@ -249,6 +249,18 @@
         <div class="projects-grid-container fade-in">
             <div id="college-tab-content" class="tab-content active">
                 <div class="projects-grid" data-stagger-children="true" data-stagger-selector=".project-card">
+                    <div class="project-card">
+                        <div class="project-card-image"><img src="image/pulmocare.jpg" alt="PulmoCare Screenshot"></div>
+                        <div class="project-card-content">
+                            <div class="project-card-header">
+                                <div><h3 class="project-card-title">PulmoCare</h3><p class="project-card-type">Lung Sound Detection</p></div>
+                                <span class="project-card-status status-completed">Completed</span>
+                            </div>
+                            <p class="project-card-description">Lung Sound Detection using Machine Learning. UI in Figma, full-stack with Flutter.</p>
+                            <div class="project-card-tech"><span class="tech-tag">Full-stack</span><span class="tech-tag">Machine Learning</span><span class="tech-tag">Website</span></div>
+                        </div>
+                        <div class="project-card-footer"><a href="https://www.figma.com/design/aiJ1w2O9W6kCF5WRSGUclt/ResQFood?node-id=0-1&t=3Siyq6Wq0MFSMGBL-1" class="project-card-link" target="_blank">View Design <span>→</span></a></div>
+                    </div>
                     <div class="project-card">
                         <div class="project-card-image"><img src="image/rf1.png" alt="ResQFood App Screenshot"></div>
                         <div class="project-card-content">
@@ -413,6 +425,16 @@
         <h2 class="text-4xl section-title">Experience & Volunteer Work</h2>
       </div>
       <div class="experience-list">
+          <div class="experience-item fade-in">
+          <img src="image/sau.png" alt="SAU Logo" class="experience-logo-img">
+          <div class="experience-content">
+            <div class="experience-header">
+              <div><h3 class="experience-title">UI/UX Developer Internship</h3><p class="experience-company">PT Siaga Abdi Utama</p></div>
+              <span class="experience-period">Feb 2024 - Feb 2025</span>
+            </div>
+            <p class="experience-description">Designing mockup for company application from mobile to website using Figma</p>
+          </div>
+        </div>
         <div class="experience-item fade-in">
           <img src="image/bdm.png" alt="Bersama Dalam Musik Logo" class="experience-logo-img">
           <div class="experience-content">
