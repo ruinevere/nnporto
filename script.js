@@ -226,3 +226,10 @@ setInterval(() => {
     heroImage.style.opacity = 1;
   }, 600); // match transition duration
 }, 4000); // interval between transitions
+
+ const toggle = document.querySelector('.nav-toggle');
+ const navLinks = document.querySelector('.nav-links');
+
+ toggle.addEventListener('click', () => {
+ navLinks.classList.toggle('open');
+ });
